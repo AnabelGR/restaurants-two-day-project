@@ -1,13 +1,13 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
-<div class="panel-group" id="accordian">
+<div class="panel-group" id="accordion">
   <div class="panel panel-default">
   @foreach (var cuisine in @Model["cuisines"])
   {
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a id="@cuisine.GetId()"class="cuisine" data-toggle ="collapse" data-parent="#accordian" href="/">@cuisine.GetType()</a>
+        <p id="@cuisine.GetId()"class="cuisine">@cuisine.GetType()</p>
       </h4>
     </div>
   @foreach (var restaurant in @Model["restaurants"])
@@ -15,8 +15,8 @@
     if(restaurant.GetCuisineId() == cuisine.GetId())
     {
 
-        <div class="panel-body">
-            @restaurant.GetName()
+        <div class="panel-body" id="rest-@restaurant.GetId()">
+          <a href="restaurant.cshtml">@restaurant.GetName()</a>
         </div>
 
     }

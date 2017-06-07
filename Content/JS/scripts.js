@@ -1,6 +1,10 @@
 $(function () {
-  $(".cuisine").click(function(event) {
-    $(".panel-body").toggle();
-    event.preventDefault();
+  $(".cuisine").each(function() {
+    $(this).click(function(event) {
+      clicked = $(this).attr('id');
+      $("#rest-" + clicked).show();
+      console.log(clicked);
+      event.preventDefault();
+    });
   });
 });
