@@ -6,10 +6,6 @@ namespace RestaurantProject
 {
   public class Cuisine
   {
-
-    // SIMILAR TO "CATEGORY" CLASS
-    // WILL INCLUDE AUTOMATICALLY GENERATED ID
-    // WILL INCLUDE NAME/TYPE OF CUISINE FOR THE "RESTAURANT" CLASS TO REFERENCE
     private int _id;
     private string _type;
 
@@ -64,10 +60,10 @@ namespace RestaurantProject
       {
         int restaurantId = rdr.GetInt32(0);
         string restaurantName = rdr.GetString(1);
-        int restaurantRating = rdr.GetInt(2);
+        int restaurantRating = rdr.GetInt32(2);
         string restaurantAvailability = rdr.GetString(3);
         int restaurantCuisineId = rdr.GetInt32(4);
-        Restaurant newRestaurant = new Restaurant(restaurantId, restaurantName, restaurantRating, restaurantAvailability, restaurantCuisineId);
+        Restaurant newRestaurant = new Restaurant(restaurantName, restaurantRating, restaurantAvailability, restaurantCuisineId, restaurantId);
         restaurants.Add(newRestaurant);
       }
       if (rdr != null)
@@ -185,6 +181,14 @@ namespace RestaurantProject
       {
         conn.Close();
       }
+    }
+    public static void DeleteAll()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+      SqlCommand cmd = new SqlCommand("DELETE FROM cuisine;", conn);
+      cmd.ExecuteNonQuery();
+      conn.Close();
     }
   }
 }

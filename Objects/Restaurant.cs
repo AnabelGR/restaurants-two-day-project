@@ -209,7 +209,7 @@ namespace RestaurantProject
         {
           foundRestaurantId = rdr.GetInt32(0);
           foundRestaurantName = rdr.GetString(1);
-          foundRestaurantRating = rdr.GetInt(2);
+          foundRestaurantRating = rdr.GetInt32(2);
           foundRestaurantAvailability = rdr.GetString(3);
           foundRestaurantCuisineId = rdr.GetInt32(4);
         }
