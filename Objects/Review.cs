@@ -141,5 +141,13 @@ namespace RestaurantProject
         conn.Close();
       }
     }
+    public static void DeleteAll()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+      SqlCommand cmd = new SqlCommand("DELETE FROM review;", conn);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+    }
   }
 }
