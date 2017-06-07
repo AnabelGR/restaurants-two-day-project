@@ -17,9 +17,10 @@ namespace RestaurantProject
         model.Add("restaurants", allRestaurants);
         return View["index.cshtml", model];
       };
-      // Get["/restaurant/{id}"] = parameters => {
-      //   Restaurant newRestaurant = new Restaurant()
-      // }
+      Get["/restaurant/{id}"] = parameters => {
+        var SelectedRestaurant = Restaurant.Find(parameters.id);
+        return View["restaurant.cshtml", SelectedRestaurant];
+      };
     }
   }
 }

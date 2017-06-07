@@ -1,3 +1,6 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
+<h1>@Model.GetName()</h1>
+<p>Rating: @Model.GetRating() out of 5 Stars</p>
+<p>Hours Of Operation: @Model.GetAvailability()</p>

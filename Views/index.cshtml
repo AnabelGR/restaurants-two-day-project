@@ -14,11 +14,9 @@
   {
     if(restaurant.GetCuisineId() == cuisine.GetId())
     {
-
-        <div class="panel-body" id="rest-@restaurant.GetId()">
-          <a href="restaurant.cshtml">@restaurant.GetName()</a>
-        </div>
-
+      <div class="panel-body rest-@cuisine.GetId()">
+        <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
+      </div>
     }
   }
   }
