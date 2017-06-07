@@ -8,3 +8,4 @@
 // (WISHLIST)
 // Owners admin to alter individual restaurant information
 // Change availability to DATETIME instead of STRING
+//Review affect rating.
