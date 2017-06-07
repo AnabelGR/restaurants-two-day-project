@@ -33,7 +33,7 @@ namespace RestaurantProject
         var SelectedCuisine = Cuisine.Find(SelectedRestaurant.GetCuisineId());
         List<Review> allReviews = SelectedRestaurant.GetReviews();
         Review newReview = new Review(Request.Form["opinion"], SelectedRestaurant.GetId());
-        allReviews.Add(newReview);
+        newReview.Save();
         model.Add("restaurantReviews", allReviews);
         model.Add("currentCuisine", SelectedCuisine);
         model.Add("currentRestaurant", SelectedRestaurant);

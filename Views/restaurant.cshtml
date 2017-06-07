@@ -30,8 +30,14 @@
         </div>
       </div>
       <div class="form-actions">
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success" type="submit" onclick="myFunction()">Submit</button>
       </div>
     </form>
   </div>
 </div>
+
+<script>
+function myFunction() {
+    document.getElementById("myForm").reset();
+}
+</script>
