@@ -1,0 +1,26 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+<div class="panel-group" id="accordian">
+  <div class="panel panel-default">
+  @foreach (var cuisine in @Model["cuisines"])
+  {
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle ="collapse" data-parent="#accordian" href="#collapse1">@cuisine.GetType()</a>
+      </h4>
+    </div>
+  @foreach (var restaurant in @Model["restaurants"])
+  {
+    if(restaurant.GetCuisineId() == cuisine.GetId())
+    {
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">
+            @restaurant.GetName()
+        </div>
+      </div>
+    }
+  }
+  }
+  </div>
+</div>
