@@ -18,8 +18,26 @@ namespace RestaurantProject
         return View["index.cshtml", model];
       };
       Get["/restaurant/{id}"] = parameters => {
+        Dictionary<string, object> model = new Dictionary<string, object>();
         var SelectedRestaurant = Restaurant.Find(parameters.id);
-        return View["restaurant.cshtml", SelectedRestaurant];
+        var SelectedCuisine = Cuisine.Find(SelectedRestaurant.GetCuisineId());
+        List<Review> allReviews = SelectedRestaurant.GetReviews();
+        model.Add("restaurantReviews", allReviews);
+        model.Add("currentCuisine", SelectedCuisine);
+        model.Add("currentRestaurant", SelectedRestaurant);
+        return View["restaurant.cshtml", model];
+      };
+      Post["/restaurant/{id}"] = parameters => {
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        var SelectedRestaurant = Restaurant.Find(parameters.id);
+        var SelectedCuisine = Cuisine.Find(SelectedRestaurant.GetCuisineId());
+        List<Review> allReviews = SelectedRestaurant.GetReviews();
+        Review newReview = new Review(Request.Form["opinion"], SelectedRestaurant.GetId());
+        allReviews.Add(newReview);
+        model.Add("restaurantReviews", allReviews);
+        model.Add("currentCuisine", SelectedCuisine);
+        model.Add("currentRestaurant", SelectedRestaurant);
+        return View["restaurant.cshtml", model];
       };
     }
   }

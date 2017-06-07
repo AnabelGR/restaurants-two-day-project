@@ -99,7 +99,7 @@ namespace RestaurantProject
         {
           int reviewId = rdr.GetInt32(0);
           string reviewOpinion = rdr.GetString(1);
-          int reviewRestaurantId = rdr.GetInt32(3);
+          int reviewRestaurantId = rdr.GetInt32(2);
           Review newReview = new Review(reviewOpinion, reviewRestaurantId, reviewId);
           reviews.Add(newReview);
         }

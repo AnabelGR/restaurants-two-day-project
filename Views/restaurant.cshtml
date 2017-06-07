@@ -1,6 +1,37 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
-<h1>@Model.GetName()</h1>
-<p>Rating: @Model.GetRating() out of 5 Stars</p>
-<p>Hours Of Operation: @Model.GetAvailability()</p>
+<h1>@Model["currentRestaurant"].GetName()</h1>
+<p>Rating: @Model["currentRestaurant"].GetRating() out of 5 Stars</p>
+<p>Hours Of Operation: @Model["currentRestaurant"].GetAvailability()</p>
+<p>Current Cuisine Type: @Model["currentCuisine"].GetType()</p>
+
+<h2>@Model["currentRestaurant"].GetName() Reviews</h2>
+@foreach (var review in Model["restaurantReviews"])
+{
+  <p>@review.GetOpinion()</p>
+}
+
+<h3>Add a Review!</h3>
+
+<div class="panel reviewForm">
+  <div class="panel">
+    <form class="form-horizontal" action="/restaurant/@Model["currentRestaurant"].GetId()" method="post">
+      <div class="form-group">
+        <label class="col-md-4" for="userName">Your Username</label>
+        <div class="col-md-8">
+        <input class="form-control" name="userName" type="text">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4" for="opinion">Your Opinion</label>
+        <div class="col-md-8">
+        <input class="form-control" name="opinion" type="text">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-success" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
