@@ -13,10 +13,20 @@ namespace RestaurantProject
       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=portland_test;Integrated Security=SSPI;";
     }
     [Fact]
-    public void Test_CuisineEmptyAtFirst()
+    public void Test_CuisineRetrieval_Returns0_Listings()
     {
       int result = Cuisine.GetAll().Count;
-      Assert.Equal(4, result);
+      Assert.Equal(0, result);
+    }
+    [Fact]
+    public void Test_Equal_ReturnsTrueForSameName()
+    {
+      //Arrange, Act
+      Cuisine firstCuisine = new Cuisine("Chinese");
+      Cuisine secondCuisine = new Cuisine("Chinese");
+
+      //Assert
+      Assert.Equal(firstCuisine, secondCuisine);
     }
     public void Dispose()
     {
