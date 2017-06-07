@@ -151,7 +151,7 @@ namespace RestaurantProject
         SqlConnection conn = DB.Connection();
         conn.Open();
 
-        SqlCommand cmd = new SqlCommand("INSERT INTO restaurant (name, rating, availability, cuisineId) OUTPUT INSERTED.id VALUES (@RestaurantName, @RestaurantRating, @RestaurantAvailability, @RestaurantCuisineId);", conn);
+        SqlCommand cmd = new SqlCommand("INSERT INTO restaurant (name, rating, availability, cuisine_Id) OUTPUT INSERTED.id VALUES (@RestaurantName, @RestaurantRating, @RestaurantAvailability, @RestaurantCuisineId);", conn);
 
         SqlParameter nameParameter = new SqlParameter();
         nameParameter.ParameterName = "@RestaurantName";

@@ -47,7 +47,7 @@ namespace RestaurantProject
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM restaurant WHERE cuisine_id = @CuisineId ORDER BY name;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM restaurant WHERE cuisine_id = @CuisineId;", conn);
       SqlParameter cuisineIdParameter = new SqlParameter();
       cuisineIdParameter.ParameterName = "@CuisineId";
       cuisineIdParameter.Value = this.GetId();

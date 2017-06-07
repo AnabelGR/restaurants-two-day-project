@@ -28,6 +28,50 @@ namespace RestaurantProject
       //Assert
       Assert.Equal(firstCuisine, secondCuisine);
     }
+    [Fact]
+    public void Test_Save_SavesCuisineToDatabase()
+    {
+      //Arrange
+      Cuisine testCuisine = new Cuisine("Chinese");
+      testCuisine.Save();
+
+      //Act
+      List<Cuisine> result = Cuisine.GetAll();
+      List<Cuisine> testList = new List<Cuisine>{testCuisine};
+
+      //Assert
+      Assert.Equal(testList, result);
+    }
+    [Fact]
+    public void Test_Find_FindsCuisineInDatabase()
+    {
+      //Arrange
+      Cuisine testCuisine = new Cuisine("Chinese");
+      testCuisine.Save();
+
+      //Act
+      Cuisine foundCuisine = Cuisine.Find(testCuisine.GetId());
+
+      //Assert
+      Assert.Equal(testCuisine, foundCuisine);
+    }
+    [Fact]
+    public void Test_GetRestaurants_RetrievesAllRestaurantsWithCuisine()
+    {
+      Cuisine testCuisine = new Cuisine("Chinese");
+      testCuisine.Save();
+
+      Restaurant firstRestaurant = new Restaurant("Wong's", 4, "Closed", testCuisine.GetId());
+      firstRestaurant.Save();
+      Restaurant secondRestaurant = new Restaurant("Jimmy Johns", 1, "Closed", testCuisine.GetId());
+      secondRestaurant.Save();
+
+
+      List<Restaurant> testRestaurantList = new List<Restaurant> {firstRestaurant, secondRestaurant};
+      List<Restaurant> resultRestaurantList = testCuisine.GetRestaurants();
+
+      Assert.Equal(testRestaurantList, resultRestaurantList);
+    }
     public void Dispose()
     {
       Restaurant.DeleteAll();
