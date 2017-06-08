@@ -16,7 +16,7 @@
 
 <div class="panel reviewForm">
   <div class="panel">
-    <form class="form-horizontal" action="/restaurant/@Model["currentRestaurant"].GetId()" method="post">
+    <form class="form-horizontal" id="review" action="/restaurant/@Model["currentRestaurant"].GetId()" method="post">
       <div class="form-group">
         <label class="col-md-4" for="userName">Your Username</label>
         <div class="col-md-8">
@@ -39,5 +39,6 @@
 <script>
 function myFunction() {
     document.getElementById("myForm").reset();
+    window.location.reload();
 }
 </script>
