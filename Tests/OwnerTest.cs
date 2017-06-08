@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 
 namespace RestaurantProject
 {
+  [Collection("RestaurantProject")]
   public class OwnerTest
   {
     [Fact]
