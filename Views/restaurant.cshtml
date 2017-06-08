@@ -5,6 +5,9 @@
 <p>Rating: @Model["currentRestaurant"].GetRating() out of 5 Stars</p>
 <p>Hours Of Operation: @Model["currentRestaurant"].GetAvailability()</p>
 <p>Current Cuisine Type: @Model["currentCuisine"].GetType()</p>
+<p>Location: @Model["currentRestaurant"].GetAddress()</p>
+<p>Phone: @Model["currentRestaurant"].GetPhone()</p>
+<p>Take-Out: @Model["currentRestaurant"].GetTakeOut()</p>
 
 <h2>@Model["currentRestaurant"].GetName() Reviews</h2>
 @foreach (var review in Model["restaurantReviews"])
@@ -35,6 +38,8 @@
     </form>
   </div>
 </div>
+
+<a href="/">Go Home</a>
 
 <script>
 function myFunction() {

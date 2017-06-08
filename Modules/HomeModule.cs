@@ -40,6 +40,17 @@ namespace RestaurantProject
         model.Add("currentRestaurant", SelectedRestaurant);
         return View["restaurant.cshtml", model];
       };
+      Post["/"] = _ => {
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        var allCuisines = Cuisine.GetAll();
+        var allRestaurants = Restaurant.GetAll();
+        Restaurant newRestaurant = new Restaurant(Request.Form["name"], 0, Request.Form["availability"], Request.Form["cuisine_id"], Request.Form["address"], Request.Form["takeOut"], Request.Form["phone"]);
+        allRestaurants.Add(newRestaurant);
+        newRestaurant.Save();
+        model.Add("cuisines", allCuisines);
+        model.Add("restaurants", allRestaurants);
+        return View["index.cshtml", model];
+      };
     }
   }
 }

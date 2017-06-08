@@ -1,9 +1,12 @@
 $(function () {
   $(".cuisine").each(function() {
-    $(this).click(function(event) {
+    $(this).click(function() {
       clicked = $(this).attr('id');
       $(".rest-" + clicked).toggle();
-      event.preventDefault();
     });
+  });
+  $(".showForm").click(function(){
+    console.log("fuck");
+    $(".hideThis").show();
   });
 });

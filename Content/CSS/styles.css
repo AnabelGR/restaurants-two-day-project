@@ -5,3 +5,6 @@ a {
 .panel-body{
   display: none;
 }
+.hideThis {
+  display: none;
+}
