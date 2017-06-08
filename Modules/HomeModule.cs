@@ -51,6 +51,18 @@ namespace RestaurantProject
         model.Add("restaurants", allRestaurants);
         return View["index.cshtml", model];
       };
+      Get["restaurant/new"] = _ => {
+        return View["restaurant-form.cshtml"];
+      };
+      Post["restaurant/new"] = _ => {
+        Owner newOwner = new Owner(Request.Form["user-name"], Request.Form["user-password"]);
+        bool isOwner = newOwner.CheckPassword();
+        if (isOwner)
+        {
+          Owner.SetStatus(true);
+        }
+        return View["restaurant-form.cshtml", newOwner];
+      };
     }
   }
 }

@@ -46,24 +46,28 @@
       if(restaurant.GetCuisineId() == 1)
       {
         <div class="panel-body rest-@cuisine.GetId()" style="background-color:#FFCCBD !important; border-bottom: 1px solid black">
+          <img src="Content/IMG/01-Mexican.png">
           <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
         </div>
       }
       else if (restaurant.GetCuisineId() == 2)
       {
         <div class="panel-body rest-@cuisine.GetId()" style="background-color:#FFE1BD !important; border-bottom: 1px solid black">
+          <img src="Content/IMG/02-Japanese2.png">
           <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
         </div>
       }
       else if (restaurant.GetCuisineId() == 3)
       {
         <div class="panel-body rest-@cuisine.GetId()" style="background-color:#9BBCCE !important; border-bottom: 1px solid black">
+          <img src="Content/IMG/03-Chinese.png">
           <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
         </div>
       }
       else if (restaurant.GetCuisineId() == 4)
       {
         <div class="panel-body rest-@cuisine.GetId()" style="background-color:#A0D7BA !important; border-bottom: 1px solid black">
+          <img src="Content/IMG/04-American.png">
           <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
         </div>
       }
@@ -76,60 +80,13 @@
   </div>
   <div class="panel-footer">
     <p>Don't see your restaurant? <a href="#anchor" class="showForm">Submit yours.</a></p></div>
-
 </div>
 <a name="anchor"><div class="hideThis"></a>
-<div class="panel restaurantForm">
-  <div class="panel">
-    <form class="form-horizontal" id="restaurant" action="/" method="post">
-      <div class="form-group">
-        <label class="col-md-4" for="Name">Your Restaurant:</label>
-        <div class="col-md-8">
-        <input class="form-control" name="name" type="text">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4" for="availability">Hours of Operation:</label>
-        <div class="col-md-8">
-        <input class="form-control" name="availability" type="text">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4" for="address">Address:</label>
-        <div class="col-md-8">
-        <input class="form-control" name="address" type="text">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4" for="phone">Phone:</label>
-        <div class="col-md-8">
-        <input class="form-control" name="phone" type="text">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4" for="takeOut">Take Out:</label>
-        <div class="col-md-4">
-          <select class="form-control" name="takeOut">
-           <option name="takeOut" value="true">Yes</option>
-           <option name="takeOut" value="false">No</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4" for="cuisine">Cuisine:</label>
-        <div class="col-md-4">
-          <select class="form-control" name="cuisine_id">
-           <option name="cuisine_id" value="1">Mexican</option>
-           <option name="cuisine_id" value="2">Japanese</option>
-           <option name="cuisine_id" value="3">Chinese</option>
-           <option name="cuisine_id" value="4">American</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-actions">
-        <button class="btn btn-success" type="submit" onclick="myFunction()">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
+  <form action="/restaurant/new" method="post">
+  <label for="user-name"></label>
+  <input id="user-name" name="user-name" type="text" placeholder="Owner Login">
+  <label for="user-password"></label>
+  <input id="user-password" name="user-password" type="text" placeholder="Password">
+  <button type="submit">Submit</button>
+</form>
 </div>

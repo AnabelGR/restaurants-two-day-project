@@ -1,0 +1,69 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+<h1>Owner's Restaurant Info Form</h1>
+
+@if(!@Model.CheckPassword())
+{
+  <div class="noaccess">
+    <h1>Sorry, Please Login as Owner to continue...</h1>
+  </div>
+}
+else
+{
+  <div class="panel restaurantForm">
+    <div class="panel restaurantForm">
+      <form class="form-horizontal" id="restaurant" action="/" method="post">
+        <div class="form-group">
+          <label class="col-md-4" for="Name">Your Restaurant:</label>
+          <div class="col-md-8">
+          <input class="form-control" name="name" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4" for="availability">Hours of Operation:</label>
+          <div class="col-md-8">
+          <input class="form-control" name="availability" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4" for="address">Address:</label>
+          <div class="col-md-8">
+          <input class="form-control" name="address" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4" for="phone">Phone:</label>
+          <div class="col-md-8">
+          <input class="form-control" name="phone" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4" for="takeOut">Take Out:</label>
+          <div class="col-md-4">
+            <select class="form-control" name="takeOut">
+             <option name="takeOut" value="true">Yes</option>
+             <option name="takeOut" value="false">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4" for="cuisine">Cuisine:</label>
+          <div class="col-md-4">
+            <select class="form-control" name="cuisine_id">
+             <option name="cuisine_id" value="1">Mexican</option>
+             <option name="cuisine_id" value="2">Japanese</option>
+             <option name="cuisine_id" value="3">Chinese</option>
+             <option name="cuisine_id" value="4">American</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-success" type="submit" onclick="myFunction()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+}
+
+<a href="/" class="btn">Go Back</a>

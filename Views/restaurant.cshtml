@@ -1,7 +1,8 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
-<h1>@Model["currentRestaurant"].GetName()</h1>
+
+<h1 class="restaurant-title">@Model["currentRestaurant"].GetName()</h1>
 <p>Rating: @Model["currentRestaurant"].GetRating() out of 5 Stars</p>
 <p>Hours Of Operation: @Model["currentRestaurant"].GetAvailability()</p>
 <p>Current Cuisine Type: @Model["currentCuisine"].GetType()</p>
@@ -18,7 +19,7 @@
 <h3>Add a Review!</h3>
 
 <div class="panel reviewForm">
-  <div class="panel">
+  <div class="panel reviewForm">
     <form class="form-horizontal" id="review" action="/restaurant/@Model["currentRestaurant"].GetId()" method="post">
       <div class="form-group">
         <label class="col-md-4" for="userName">Your Username</label>
@@ -39,7 +40,7 @@
   </div>
 </div>
 
-<a href="/">Go Home</a>
+<a href="/" class="btn">Go Back</a>
 
 <script>
 function myFunction() {

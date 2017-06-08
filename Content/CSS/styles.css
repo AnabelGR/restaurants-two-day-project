@@ -5,6 +5,7 @@ a {
 
 body {
   font-family: 'Crete Round', serif;
+  background-color: #FFCE94;
 }
 
 .panel-body{
@@ -24,4 +25,34 @@ body {
 
 .panel-footer {
   text-align: center;
+}
+
+.jumbotron {
+  background-color: #99371A !important;
+  color: #FFE1BD !important;
+}
+
+small {
+  color: #FFCCBD !important;
+}
+
+.btn {
+  background-color: #99371A !important;
+  color: #FFE1BD !important;
+  border: 2px solid #FFCE94;
+}
+
+.restaurantForm, .reviewForm {
+  background-color: #99371A !important;
+  color: #FFE1BD !important;
+  padding: 10px;
+}
+
+p {
+  margin-left: 20px;
+}
+
+img {
+  width: 20px;
+  height: 20px;
 }

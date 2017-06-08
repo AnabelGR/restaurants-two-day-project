@@ -144,7 +144,7 @@ namespace RestaurantProject
     //   cuisineIdParameter.Value = id.ToString();
     //   cmd.Parameters.Add(cuisineIdParameter);
     //   SqlDataReader rdr = cmd.ExecuteReader();
-    //
+    // 
     //
     // }
     public static Cuisine Find(int id)
