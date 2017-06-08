@@ -22,8 +22,8 @@ namespace RestaurantProject
     public void Test_Equal_ReturnsTrueIfNamesAreTheSame()
     {
       //Arrange, Act
-      Restaurant firstRestaurant = new Restaurant("Mow the lawn", 1, "Open", 1);
-      Restaurant secondRestaurant = new Restaurant("Mow the lawn", 1, "Open", 1);
+      Restaurant firstRestaurant = new Restaurant("Wong's", 4, "Closed", 2, "123 Address Road", "true", "503-405-3054");
+      Restaurant secondRestaurant = new Restaurant("Wong's", 4, "Closed", 2, "123 Address Road", "true", "503-405-3054");
 
       //Assert
       Assert.Equal(firstRestaurant, secondRestaurant);
@@ -32,7 +32,7 @@ namespace RestaurantProject
     public void Test_SaveAssignsIdToObject()
     {
       //Arrange
-      Restaurant testRestaurant = new Restaurant("Mow the lawn", 3, "Closed Tuesdays", 1);
+      Restaurant testRestaurant = new Restaurant("Wong's", 4, "Closed", 2, "123 Address Road", "true", "503-405-3054");
       testRestaurant.Save();
 
       //Act
@@ -48,7 +48,7 @@ namespace RestaurantProject
     public void Test_Find_FindsRestaurantInDatabase()
     {
       //Arrange
-      Restaurant testRestaurant = new Restaurant("Mow the lawn", 4, "Monday", 1);
+      Restaurant testRestaurant = new Restaurant("Wong's", 4, "Closed", 1, "123 Address Road", "true", "503-405-3054");
       testRestaurant.Save();
 
       //Act

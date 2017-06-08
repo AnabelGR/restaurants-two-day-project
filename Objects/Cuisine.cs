@@ -63,7 +63,10 @@ namespace RestaurantProject
         int restaurantRating = rdr.GetInt32(2);
         string restaurantAvailability = rdr.GetString(3);
         int restaurantCuisineId = rdr.GetInt32(4);
-        Restaurant newRestaurant = new Restaurant(restaurantName, restaurantRating, restaurantAvailability, restaurantCuisineId, restaurantId);
+        string restaurantAddress = rdr.GetString(5);
+        string restaurantTakeOut = rdr.GetString(6);
+        string restaurantPhone = rdr.GetString(7);
+        Restaurant newRestaurant = new Restaurant(restaurantName, restaurantRating, restaurantAvailability, restaurantCuisineId, restaurantAddress, restaurantTakeOut, restaurantPhone, restaurantId);
         restaurants.Add(newRestaurant);
       }
       if (rdr != null)

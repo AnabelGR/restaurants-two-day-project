@@ -61,9 +61,9 @@ namespace RestaurantProject
       Cuisine testCuisine = new Cuisine("Chinese");
       testCuisine.Save();
 
-      Restaurant firstRestaurant = new Restaurant("Wong's", 4, "Closed", testCuisine.GetId());
+      Restaurant firstRestaurant = new Restaurant("Wong's", 4, "Closed", testCuisine.GetId(), "123 Address Road", "true", "503-405-3054");
       firstRestaurant.Save();
-      Restaurant secondRestaurant = new Restaurant("Jimmy Johns", 1, "Closed", testCuisine.GetId());
+      Restaurant secondRestaurant = new Restaurant("Jimmy Johns", 1, "Closed", testCuisine.GetId(), "321 Road AddressRd", "true", "504-345-0090");
       secondRestaurant.Save();
 
 

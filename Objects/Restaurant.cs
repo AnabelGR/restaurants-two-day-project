@@ -20,14 +20,21 @@ namespace RestaurantProject
     private int _rating;
     private string _availability;
     private int _cuisineId;
+    private string _address;
+    private string _takeOut;
+    private string _phone;
 
-    public Restaurant(string Name, int Rating, string Availability, int CuisineId, int Id = 0)
+
+    public Restaurant(string Name, int Rating, string Availability, int CuisineId, string Address, string TakeOut, string Phone, int Id = 0)
     {
       _id = Id;
       _name = Name;
       _rating = Rating;
       _availability = Availability;
       _cuisineId = CuisineId;
+      _address = Address;
+      _takeOut = TakeOut;
+      _phone = Phone;
     }
     public override bool Equals(System.Object otherRestaurant)
     {
@@ -42,7 +49,10 @@ namespace RestaurantProject
         bool ratingEquality = (this.GetRating() == newRestaurant.GetRating());
         bool availabilityEquality = (this.GetAvailability() == newRestaurant.GetAvailability());
         bool cuisineIdEquality = (this.GetCuisineId() == newRestaurant.GetCuisineId());
-        return (nameEquality && ratingEquality && availabilityEquality && cuisineIdEquality);
+        bool addressEquality = (this.GetAddress() == newRestaurant.GetAddress());
+        bool takeOutEquality = (this.GetTakeOut() == newRestaurant.GetTakeOut());
+        bool phoneEquality = (this.GetPhone() == newRestaurant.GetPhone());
+        return (nameEquality && ratingEquality && availabilityEquality && cuisineIdEquality && addressEquality && takeOutEquality && phoneEquality);
       }
     }
     public int GetId()
@@ -80,6 +90,30 @@ namespace RestaurantProject
     public void SetAvailability(string newAvailability)
     {
       _availability = newAvailability;
+    }
+    public string GetAddress()
+    {
+      return _address;
+    }
+    public void SetAddress(string newAddress)
+    {
+      _address = newAddress;
+    }
+    public string GetTakeOut()
+    {
+      return _takeOut;
+    }
+    public void SetTakeOut(string newTakeOut)
+    {
+      _takeOut = newTakeOut;
+    }
+    public string GetPhone()
+    {
+      return _phone;
+    }
+    public void SetPhone(string newPhone)
+    {
+      _phone = newPhone;
     }
     public List<Review> GetReviews()
       {
@@ -131,7 +165,10 @@ namespace RestaurantProject
           string restaurantAvailability = rdr.GetString(3);
           int restaurantRating = rdr.GetInt32(2);
           int restaurantCuisineId = rdr.GetInt32(4);
-          Restaurant newRestaurant = new Restaurant(restaurantName, restaurantRating, restaurantAvailability, restaurantCuisineId, restaurantId);
+          string restaurantAddress = rdr.GetString(5);
+          string restaurantTakeOut = rdr.GetString(6);
+          string restaurantPhone = rdr.GetString(7);
+          Restaurant newRestaurant = new Restaurant(restaurantName, restaurantRating, restaurantAvailability, restaurantCuisineId, restaurantAddress, restaurantTakeOut, restaurantPhone, restaurantId);
           allRestaurants.Add(newRestaurant);
         }
 
@@ -151,7 +188,7 @@ namespace RestaurantProject
         SqlConnection conn = DB.Connection();
         conn.Open();
 
-        SqlCommand cmd = new SqlCommand("INSERT INTO restaurant (name, rating, availability, cuisine_Id) OUTPUT INSERTED.id VALUES (@RestaurantName, @RestaurantRating, @RestaurantAvailability, @RestaurantCuisineId);", conn);
+        SqlCommand cmd = new SqlCommand("INSERT INTO restaurant (name, rating, availability, cuisine_Id, address, takeout, phone) OUTPUT INSERTED.id VALUES (@RestaurantName, @RestaurantRating, @RestaurantAvailability, @RestaurantCuisineId, @RestaurantAddress, @RestaurantTakeOut, @RestaurantPhone);", conn);
 
         SqlParameter nameParameter = new SqlParameter();
         nameParameter.ParameterName = "@RestaurantName";
@@ -169,10 +206,25 @@ namespace RestaurantProject
         cuisineIdParameter.ParameterName = "@RestaurantCuisineId";
         cuisineIdParameter.Value = this.GetCuisineId();
 
+        SqlParameter addressParameter = new SqlParameter();
+        addressParameter.ParameterName = "@RestaurantAddress";
+        addressParameter.Value = this.GetAddress();
+
+        SqlParameter takeOutParameter = new SqlParameter();
+        takeOutParameter.ParameterName = "@RestaurantTakeOut";
+        takeOutParameter.Value = this.GetTakeOut();
+
+        SqlParameter phoneParameter = new SqlParameter();
+        phoneParameter.ParameterName = "@RestaurantPhone";
+        phoneParameter.Value = this.GetPhone();
+
         cmd.Parameters.Add(nameParameter);
         cmd.Parameters.Add(ratingParameter);
         cmd.Parameters.Add(availabilityParameter);
         cmd.Parameters.Add(cuisineIdParameter);
+        cmd.Parameters.Add(addressParameter);
+        cmd.Parameters.Add(takeOutParameter);
+        cmd.Parameters.Add(phoneParameter);
         SqlDataReader rdr = cmd.ExecuteReader();
 
         while(rdr.Read())
@@ -205,6 +257,9 @@ namespace RestaurantProject
         int foundRestaurantRating = 0;
         string foundRestaurantAvailability = null;
         int foundRestaurantCuisineId = 0;
+        string foundRestaurantAddress = null;
+        string foundRestaurantTakeOut = null;
+        string foundRestaurantPhone = null;
         while(rdr.Read())
         {
           foundRestaurantId = rdr.GetInt32(0);
@@ -212,8 +267,11 @@ namespace RestaurantProject
           foundRestaurantRating = rdr.GetInt32(2);
           foundRestaurantAvailability = rdr.GetString(3);
           foundRestaurantCuisineId = rdr.GetInt32(4);
+          foundRestaurantAddress = rdr.GetString(5);
+          foundRestaurantTakeOut = rdr.GetString(6);
+          foundRestaurantPhone = rdr.GetString(7);
         }
-        Restaurant foundRestaurant = new Restaurant(foundRestaurantName, foundRestaurantRating, foundRestaurantAvailability, foundRestaurantCuisineId, foundRestaurantId);
+        Restaurant foundRestaurant = new Restaurant(foundRestaurantName, foundRestaurantRating, foundRestaurantAvailability, foundRestaurantCuisineId, foundRestaurantAddress, foundRestaurantTakeOut, foundRestaurantPhone, foundRestaurantId);
 
         if (rdr != null)
         {
