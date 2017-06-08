@@ -1,5 +1,10 @@
 a {
   text-decoration: none;
+  color: black;
+}
+
+body {
+  font-family: 'Crete Round', serif;
 }
 
 .panel-body{
@@ -7,4 +12,16 @@ a {
 }
 .hideThis {
   display: none;
+}
+
+.panel-heading {
+  text-align: center;
+}
+
+.cuisine {
+  font-size: 32px;
+}
+
+.panel-footer {
+  text-align: center;
 }

@@ -5,18 +5,70 @@
   <div class="panel panel-default">
   @foreach (var cuisine in @Model["cuisines"])
   {
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <p id="@cuisine.GetId()"class="cuisine">@cuisine.GetType()</p>
-      </h4>
-    </div>
+    @if (@cuisine.GetId() == 1)
+    {
+      <div class="panel-heading" style="background-color:#DF7D60 !important">
+        <h4 class="panel-title">
+          <p id="@cuisine.GetId()"class="cuisine">@cuisine.GetType()</p>
+        </h4>
+      </div>
+    }
+    else if (@cuisine.GetId() == 2)
+    {
+      <div class="panel-heading" style="background-color:#DFA560 !important">
+        <h4 class="panel-title">
+          <p id="@cuisine.GetId()"class="cuisine">@cuisine.GetType()</p>
+        </h4>
+      </div>
+    }
+    else if (@cuisine.GetId() == 3)
+    {
+      <div class="panel-heading" style="background-color:#41738E !important">
+        <h4 class="panel-title">
+          <p id="@cuisine.GetId()"class="cuisine">@cuisine.GetType()</p>
+        </h4>
+      </div>
+    }
+    else if (@cuisine.GetId() == 4)
+    {
+      <div class="panel-heading" style="background-color:#449E6E !important">
+        <h4 class="panel-title">
+          <p id="@cuisine.GetId()"class="cuisine">@cuisine.GetType()</p>
+        </h4>
+      </div>
+    }
+
+
   @foreach (var restaurant in @Model["restaurants"])
   {
     if(restaurant.GetCuisineId() == cuisine.GetId())
     {
-      <div class="panel-body rest-@cuisine.GetId()">
-        <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
-      </div>
+      if(restaurant.GetCuisineId() == 1)
+      {
+        <div class="panel-body rest-@cuisine.GetId()" style="background-color:#FFCCBD !important; border-bottom: 1px solid black">
+          <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
+        </div>
+      }
+      else if (restaurant.GetCuisineId() == 2)
+      {
+        <div class="panel-body rest-@cuisine.GetId()" style="background-color:#FFE1BD !important; border-bottom: 1px solid black">
+          <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
+        </div>
+      }
+      else if (restaurant.GetCuisineId() == 3)
+      {
+        <div class="panel-body rest-@cuisine.GetId()" style="background-color:#9BBCCE !important; border-bottom: 1px solid black">
+          <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
+        </div>
+      }
+      else if (restaurant.GetCuisineId() == 4)
+      {
+        <div class="panel-body rest-@cuisine.GetId()" style="background-color:#A0D7BA !important; border-bottom: 1px solid black">
+          <a href="restaurant/@restaurant.GetId()">@restaurant.GetName()</a>
+        </div>
+      }
+
+
     }
   }
   }

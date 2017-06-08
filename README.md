@@ -49,3 +49,7 @@ Copyright (c) 2017 **_{Jun Fritz, Anabel Ramirez}_**
 #FOR ADDING IMAGES IN SQL database
 
 * https://sqlpathy.com/2013/12/18/how-to-use-insert-query-to-store-images/
+
+#ICON RESOURCES
+
+* FlatIcon website

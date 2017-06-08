@@ -133,7 +133,20 @@ namespace RestaurantProject
         conn.Close();
       }
     }
-
+    // public static Cuisine GetImage(int id)
+    // {
+    //   SqlConnection conn = DB.Connection();
+    //   conn.Open();
+    //
+    //   SqlCommand cmd = new SqlCommand("SELECT * FROM image_tbl WHERE cuisine_id = @CuisineId;", conn);
+    //   SqlParameter cuisineIdParameter = new SqlParameter();
+    //   cuisineIdParameter.ParameterName = "@CuisineId";
+    //   cuisineIdParameter.Value = id.ToString();
+    //   cmd.Parameters.Add(cuisineIdParameter);
+    //   SqlDataReader rdr = cmd.ExecuteReader();
+    //
+    //
+    // }
     public static Cuisine Find(int id)
     {
       SqlConnection conn = DB.Connection();
